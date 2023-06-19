@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>User's Browser name is: <span id="bName"></span></h2>
+    <h2>User's Browser Version is: <span id="bVersion"></span></h2>
+
+
+    <script src="./5a.js"></script>
+    <script>
+        function findUser() {
+            const userAgent = navigator.userAgent;
+            let browserName;
+            console.log(userAgent);
+
+            if (userAgent.match(/chrome|chromium|crios/i)) {
+                browserName = "Chrome";
+            } else if (userAgent.match(/firefox|fxios/i)) {
+                browserName = "Firefox";
+            } else if (userAgent.match(/safari/i)) {
+                browserName = "Safari";
+            } else if (userAgent.match(/opera|opr\//i)) {
+                browserName = "Opera";
+            } else if (userAgent.match(/edg|edge/i)) {
+                browserName = "Edge";
+            } else if (userAgent.match(/msie|trident/i)) {
+                browserName = "Internet Explorer";
+            } else {
+                browserName = "Unknown";
+            }
+            const versionMatch = userAgent.match(
+                /(?:chrome|crios|firefox|fxios|safari|opr|edge|msie|trident)[\/|\s]([\d.]+)/i
+            );
+            if (versionMatch && versionMatch.length > 1) {
+                browserVersion = versionMatch[1];
+            } else {
+                browserVersion = "Unknown";
+            }
+
+            return {
+                name: browserName,
+                version: browserVersion,
+            };
+        }
+
+    </script>
+    <script>
+        const browser = findUser();
+        document.getElementById("bName").innerText = browser.name;
+        document.getElementById("bVersion").innerText = browser.version;
+    </script>
+</body>
+
+</html>

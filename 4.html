@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Open</title>
+</head>
+
+<body>
+    <!-- +++++++++++++++++++++++++++++ b +++++++++++++++++++++++++++++++++  -->
+
+    <button onclick="openWindow('https://www.example.com', 800, 600)">Click to Open Window</button>
+
+    <!-- ++++++++++++++++++++++++++++ a +++++++++++++++++++++++++++++++++  -->
+    <script>
+        function openWindow(url, width, height) {
+            window.open(url, "_blank", `width=${width} height=${height}`);
+        }
+    </script>
+</body>
+
+</html>

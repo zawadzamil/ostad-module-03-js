@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Location</title>
+</head>
+
+<body>
+
+    <h2>Latitude: <span id="latitude"></span></h2>
+    <h2>Longitude: <span id="longitude"></span></h2>
+
+
+
+
+
+    <script>
+        const successCallback = (position) => {
+            const crd = position.coords;
+            const data = {
+                latitude: crd.latitude,
+                longitude: crd.longitude,
+            };
+            console.log(data);
+        };
+        const errorCallback = (error) => {
+            console.log(error);
+        };
+
+        function getGeoLocation() {
+            return new Promise((resolve, reject) => {
+                const successCallback = (position) => {
+                    const crd = position.coords;
+                    const data = {
+                        latitude: crd.latitude,
+                        longitude: crd.longitude,
+                    };
+                    resolve(data);
+                };
+                const errorCallback = (error) => {
+                    reject(error);
+                };
+                navigator.geolocation.getCurrentPosition(
+                    successCallback,
+                    errorCallback
+                );
+            });
+        }
+
+    </script>
+    <script>
+        const userLocation = getGeoLocation()
+            .then((data) => {
+                document.getElementById("latitude").innerText = data.latitude;
+                document.getElementById("longitude").innerText = data.longitude;
+            });
+    </script>
+</body>
+
+</html>

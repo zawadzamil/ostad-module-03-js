@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Position</title>
+</head>
+
+<body>
+
+    <img src="https://images.unsplash.com/photo-1515536765-9b2a70c4b333?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=736&q=80"
+        alt="Primary Image" width="1020" height="900" id="image">
+
+
+    <script>
+        //  +++++++++++++++ a ++++++++++++++ 
+        function printMousePos(event) {
+            alert("X Coordinate: " + event.clientX + ", \nY Coordinate: " + event.clientY)
+        }
+
+        document.addEventListener("click", printMousePos);
+
+        // +++++++++++++ b +++++++++++++++++++++++ 
+        document.onkeypress = (event) => {
+            event = event || window.event;
+            let charCode = event.keyCode || event.which;
+            let charStr = String.fromCharCode(charCode);
+            alert("Key Code: " + charCode + "\nKey Pressed: " + charStr.toUpperCase());
+        };
+
+        // ++++++++++++++++++++ c +++++++++++++++++++
+        const currentSource = document.getElementById("image").src;
+        document.getElementById("image").onmouseover = (event) => {
+            document.getElementById("image").src = "https://images.unsplash.com/photo-1507808973436-a4ed7b5e87c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+        };
+        document.getElementById("image").onmouseout = (event) => {
+            document.getElementById("image").src = currentSource;
+        };
+
+    </script>
+</body>
+
+</html>
