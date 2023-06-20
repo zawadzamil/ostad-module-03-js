@@ -13,13 +13,10 @@
     <h2>User's Browser Version is: <span id="bVersion"></span></h2>
 
 
-    <script src="./5a.js"></script>
     <script>
         function findUser() {
             const userAgent = navigator.userAgent;
             let browserName;
-            console.log(userAgent);
-
             if (userAgent.match(/chrome|chromium|crios/i)) {
                 browserName = "Chrome";
             } else if (userAgent.match(/firefox|fxios/i)) {
