@@ -63,22 +63,21 @@
         document.getElementById("submit").onclick = (event) => {
             event.preventDefault();
             const name = document.getElementById("name").value
-            validateName(name);
+            // validateName(name);
 
 
             const email = document.getElementById("email").value;
-            ValidateEmail(email);
+            // ValidateEmail(email);
 
             const password = document.getElementById("password").value
             const confirmPassword = document.getElementById("confirm").value
-            validatePassword(password, confirmPassword);
+            // validatePassword(password, confirmPassword);
 
-            if(validateName(name)) {
+            if(validateName(name) && ValidateEmail(email) && validatePassword(password, confirmPassword) ){
+                alert("Validation successful");
+            }
                 
             }
-
-
-        }
 
         function validateName(name) {
             if (name == "") {
