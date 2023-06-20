@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Query Selector</title>
+</head>
+
+<body>
+
+    <!-- ********************* a *******************  -->
+
+    <div class="container">
+        <div class="paragraphs">
+            <p class="red" id="first">This is a paragraph</p>
+            <p class="green" id="second">This is a paragraph</p>
+
+            <p class="red" id="third">This is a paragraph</p>
+
+            <p class="red" id="forth">This is a paragraph</p>
+
+            <p class="green" id="fifth">This is a paragraph</p>
+
+            <p class="green" id="sixth">This is a paragraph</p>
+
+
+        </div>
+    </div>
+
+    <style>
+        .bg-red {
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        // ************************ b ************************ 
+        function changeColor(className) {
+            document.querySelectorAll("." + className).forEach(element => {
+                element.classList.add("bg-red");
+            });
+        }
+        changeColor("green");
+    </script>
+</body>
+
+</html>
