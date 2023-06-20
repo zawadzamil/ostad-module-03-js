@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" name="form">
+            <table>
+                <tr>
+                    <td> <label for="name">Name</label></td>
+                    <td>
+                        <input type="text" id="name" name="name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="email">Email</label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" name="email">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="password">Password</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label for="confirm">Confirm Password</label>
+                    </td>
+                    <td>
+                        <input type="password" id="confirm" name="confirm">
+                    </td>
+                </tr>
+            </table>
+
+
+            <button id="submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+    <script>
+
+        document.getElementById("submit").onclick = (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value
+            validateName(name);
+
+
+            const email = document.getElementById("email").value;
+            ValidateEmail(email);
+
+            const password = document.getElementById("password").value
+            const confirmPassword = document.getElementById("confirm").value
+            validatePassword(password, confirmPassword);
+
+            if(validateName(name)) {
+                
+            }
+
+
+        }
+
+        function validateName(name) {
+            if (name == "") {
+                alert("Name should't be empty")
+                document.form.name.focus();
+                return false;
+            }
+            if (containsNumbers(name)) {
+                alert("Name Shouldn't Contain Number")
+                document.form.name.focus();
+                return false;
+            }
+            return true;
+        }
+
+        function ValidateEmail(input) {
+
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            if (!input.match(validRegex)) {
+
+                alert("Invalid email address!");
+
+                document.form.email.focus();
+
+                return false;
+
+            }
+            return true;
+
+        }
+
+        function containsNumbers(str) {
+            return /[0-9]/.test(str);
+        }
+
+        function validatePassword(password, confirmPassword) {
+            var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+            if (!regex.test(password)) {
+                if (password.length < 8) {
+                    alert("Password must be at least 8 characters long!");
+                    document.form.password.focus();
+                    return false;
+                }
+                else {
+                    alert("Password must include at least one uppercase one lowercase and a digit!")
+                    return false;
+                }
+            }
+            if (password !== confirmPassword) {
+                alert("Confirm password does not match!");
+                document.form.confirm.focus();
+                return false; // Stop further validation
+            }
+            return true;
+        }
+    </script>
+
+</body>
+
+
+</html>

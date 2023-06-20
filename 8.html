@@ -15,13 +15,19 @@
         <!-- Button  -->
         <button id="button">Click Me</button>
         <!-- Paragraph  -->
-        <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta ipsam facilis nemo, in harum aliquid?
-            Perspiciatis distinctio sit debitis voluptatum deleniti dolore aspernatur soluta, voluptate ab adipisci.
-            Nobis doloribus consequatur similique maiores ab, obcaecati incidunt a quo aspernatur qui illo praesentium
-            atque quidem dolor fugit et eius. Laudantium, nisi laboriosam.
+        <p id="paragraph">
+            Lorem ipsum dolor,
         </p>
     </div>
+
+
+    <script>
+        document.getElementById("button").onclick = (event) => {
+            document.getElementById("paragraph").innerText = "Button Clicked!";
+        }
+    </script>
 </body>
+
+
 
 </html>
